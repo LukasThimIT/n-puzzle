@@ -1,0 +1,24 @@
+{
+  "name": "n-puzzle",
+  "version": "1.0.0",
+  "description": "A puzzle game for Grebban",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/LukasThimIT/n-puzzle.git"
+  },
+  "keywords": [
+    "n-puzzle",
+    "code",
+    "test"
+  ],
+  "author": "Lukas Thim",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/LukasThimIT/n-puzzle/issues"
+  },
+  "homepage": "https://github.com/LukasThimIT/n-puzzle#readme"
+}
