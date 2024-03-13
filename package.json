@@ -1,24 +1,29 @@
 {
-  "name": "n-puzzle",
-  "version": "1.0.0",
-  "description": "A puzzle game for Grebban",
-  "main": "index.js",
+  "name": "react.dev",
+  "version": "0.0.0",
+  "main": "/src/index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test --env=jsdom",
+    "eject": "react-scripts eject"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/LukasThimIT/n-puzzle.git"
+  "dependencies": {
+    "react": "^18.0.0",
+    "react-dom": "^18.0.0",
+    "react-scripts": "^5.0.0"
   },
-  "keywords": [
-    "n-puzzle",
-    "code",
-    "test"
-  ],
-  "author": "Lukas Thim",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/LukasThimIT/n-puzzle/issues"
-  },
-  "homepage": "https://github.com/LukasThimIT/n-puzzle#readme"
+  "devDependencies": {},
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  }
 }
