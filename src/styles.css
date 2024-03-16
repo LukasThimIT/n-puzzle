@@ -47,18 +47,18 @@ ul {
 }
 
 .square {
-    background: #fff;
-    border: 1px solid #999;
+    background: #d4fdd2;
+    border: 3px solid #999;
     float: left;
-    font-size: 24px;
+    font-size: 152px;
     font-weight: bold;
-    line-height: 34px;
-    height: 34px;
+    line-height: 164px;
+    height: 164px;
     margin-right: -1px;
     margin-top: -1px;
     padding: 0;
     text-align: center;
-    width: 34px;
+    width: 164px;
 }
 
 .board-row:after {
@@ -69,6 +69,7 @@ ul {
 
 .status {
     margin-bottom: 10px;
+    font-size: 64px;
 }
 .game {
     display: flex;
@@ -77,4 +78,11 @@ ul {
 
 .game-info {
     margin-left: 20px;
+}
+
+button{
+    height: 60px;
+    width: 300px;
+    font-size: 40px;
+    
 }
