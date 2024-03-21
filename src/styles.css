@@ -1,5 +1,8 @@
+@import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@300&display=swap');
+  
 * {
     box-sizing: border-box;
+    font-family: Source Sans Pro;
 }
 
 body {
@@ -50,15 +53,21 @@ ul {
     background: #d4fdd2;
     border: 3px solid #999;
     float: left;
-    font-size: 52px;
+    font-size: 32px;
     font-weight: bold;
     line-height: 164px;
-    height: 164px;
+    height: 104px;
+    width: 104px;
     margin-right: -1px;
     margin-top: -1px;
     padding: 0;
     text-align: center;
-    width: 164px;
+    
+}
+
+.emptySquare{
+    background: #999;
+    color: #999;
 }
 
 .board-row:after {
