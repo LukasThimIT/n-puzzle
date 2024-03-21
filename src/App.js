@@ -7,33 +7,45 @@ function Square({value, onSquareClick}){
 }
 
 export default function Board({onPlay}){
-  const [squares, setSquares] = useState(render_board(4,4)); 
+  var boardWidth = 4;
+  var boardHeight = 4;
+  var boardValues = Array.from({length : boardHeight*boardWidth}, (_, v) => v);
+  shuffle();
+  const [squares, setSquares] = useState(render_board(boardHeight, boardWidth, boardValues));
   
   function handleClick(i){
     console.log(i);
-    return i;
-    if (squares[i] != 0){ //kolla att squares[i] inte är lika med den tomma rutan
-      console.log(squares);
-      return "hej";
+    if (boardValues[i] == 0){ //kolla att squares[i] inte är lika med den tomma rutan
+      boardValues = Array.from({length : boardHeight*boardWidth}, (_, v) => v+5);
+      setSquares(render_board(boardHeight, boardWidth, boardValues));
+      return
     }
-    const nextSquares = squares.slice();
-    onPlay(nextSquares, false);
+    boardValues = Array.from({length : boardHeight*boardWidth}, (_, v) => v+2);
+    setSquares(render_board(boardHeight, boardWidth, boardValues));
+  }
+
+  function shuffle(){
+    return boardValues.sort(() => Math.random() - 0.5); 
+  }
+
+  function moveSquares(nextSquares){
+    
   }
 
   function resetGame(){
-    const resetSquares = Array(9).fill(null);
-    onPlay(resetSquares);
+    shuffle();
+    setSquares(render_board(boardHeight, boardWidth, boardValues));
   }
   
-  function render_board(board_height, board_width){
+  function render_board(boardHeight, boardWidth, squareValues){
     const rows = [];
 
-    for(let i = 0; i < board_height; i++){
+    for(let i = 0; i < boardHeight; i++){
       const columns = [];
       
-      for(let j = 0; j < board_width; j++){
-         const key_index = (i * board_width) + j;
-        columns.push(<Square value={key_index} key={key_index} onSquareClick={() => handleClick(key_index)} />);
+      for(let j = 0; j < boardWidth; j++){
+        const index = (i * boardWidth) + j;
+        columns.push(<Square value={squareValues[index]} key={index} onSquareClick={() => handleClick(index)} />);
         
         //console.log(key_index);
       }
