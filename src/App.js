@@ -1,24 +1,13 @@
 import { useState } from "react";
 
-/*
-Sidan skall vara responsive och funka i mobil, surfplatta osv.
----Brickorna skall vara numrerade från 1 och uppåt
----Det skall vara exakt ett tomrum
----Brickor flyttas genom att klicka på en bricka i samma kolumn eller rad som den tomma rutan, då flyttas den brickan och alla brickor mellan den och tomrummet ett steg mot den tomma rutan. Så om användaren klickar på femman i exempelwireframen nedan så flyttas både femman och tian ett steg nedåt.
-All text skall vara i Google-fonten Open Sans
----Brickornas initiala ordning skall vara slumpad
----Det skall finnas en knapp för att slumpa om ordningen
----Om användaren löser pusslet skall det skrivas ut på skärmen på något lämpligt sätt.
-*/
-
-function Square({value, onSquareClick, style}){
-  return (<button className={style} onClick={onSquareClick}>
+function Square({value, onSquareClick, styleClass}){
+  return (<button className={styleClass} onClick={onSquareClick}>
               {value}
           </button>);
 }
 
-export default function Board({onPlay}){
-  var boardWidth = 3;
+export default function Board(){
+  var boardWidth = 5;
   var boardHeight = 3;
   var boardValues = Array.from({length : boardHeight*boardWidth}, (_, v) => v);
   shuffle();
@@ -104,10 +93,10 @@ export default function Board({onPlay}){
       for(let j = 0; j < boardWidth; j++){
         const index = (i * boardWidth) + j;
         if(squareValues[index] == 0){
-          columns.push(<Square style="square emptySquare" value={squareValues[index]} key={index} onSquareClick={() => handleClick(index)} />);
+          columns.push(<Square styleClass="square emptySquare" value={squareValues[index]} key={index} onSquareClick={() => handleClick(index)} />);
         }
         else{
-          columns.push(<Square style="square" value={squareValues[index]} key={index} onSquareClick={() => handleClick(index)} />);
+          columns.push(<Square styleClass="square" style="" value={squareValues[index]} key={index} onSquareClick={() => handleClick(index)} />);
         }
       }
     rows.push(<div className="board-row" key={i}>{columns}</div>);
@@ -116,12 +105,11 @@ export default function Board({onPlay}){
   }
 
   return(
-    <>
-      <div className="status">n-pussel {status}</div>
-
-      
+    <div className="wrapper">
+      <div className="status">n-pussel</div>
       {squares}
-      <button onClick={() => resetGame()}>Reset!</button>
-    </>
+      <button className="reset" onClick={() => resetGame()}>Reset!</button>
+      <div className="status">{status}</div>
+    </div>
   );
   }

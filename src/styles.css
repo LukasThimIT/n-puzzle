@@ -6,43 +6,15 @@
 }
 
 body {
-    font-family: sans-serif;
+    height: 50% max-content;
     margin: 20px;
     padding: 0;
 }
 
-h1 {
-    margin-top: 0;
-    font-size: 22px;
-}
-
-h2 {
-    margin-top: 0;
-    font-size: 20px;
-}
-
-h3 {
-    margin-top: 0;
-    font-size: 18px;
-}
-
-h4 {
-    margin-top: 0;
-    font-size: 16px;
-}
-
-h5 {
-    margin-top: 0;
-    font-size: 14px;
-}
-
-h6 {
-    margin-top: 0;
-    font-size: 12px;
-}
-
-code {
-    font-size: 1.2em;
+.wrapper{
+    width: max-content;
+    padding-top: 100px;
+    margin: 0 auto;
 }
 
 ul {
@@ -51,18 +23,17 @@ ul {
 
 .square {
     background: #d4fdd2;
-    border: 3px solid #999;
+    border: 2px solid #999;
     float: left;
-    font-size: 32px;
+    font-size: 2.5em;
     font-weight: bold;
-    line-height: 164px;
+    line-height: 64px;
     height: 104px;
     width: 104px;
     margin-right: -1px;
     margin-top: -1px;
     padding: 0;
     text-align: center;
-    
 }
 
 .emptySquare{
@@ -77,8 +48,10 @@ ul {
 }
 
 .status {
-    margin-bottom: 10px;
-    font-size: 64px;
+    width: max-content;
+    margin: 0 auto;
+    margin-bottom: 1vh;
+    font-size: 4em;
 }
 .game {
     display: flex;
@@ -89,9 +62,44 @@ ul {
     margin-left: 20px;
 }
 
-button{
-    height: 60px;
-    width: 300px;
-    font-size: 40px;
-    
+.reset{
+    float: left;
+    margin-left: 25%;
+    margin-top: 0.3vh;
+    height: 7vh;
+    width: 50%;
+    height: 65px;
+    font-size: 2.6em;  
+    font-weight: bold;
+}
+
+@media (max-width: 600px) {
+    .square {
+        height: 50px;
+        width: 50px;
+        font-size: 1.5em;
+        line-height: 50px;
+    }
+    .reset{
+        font-size: 1.7em;
+        height: 45px;
+    }
+    .status{
+        font-size: 2em;
+    }
+}
+
+@media (min-width: 601px) and (max-width: 1200px) {
+    .square {
+        height: 84px;
+        width: 84px;
+        font-size: 2em;
+    }
+    .reset{
+        font-size: 2em;
+        height: 55px;
+    }
+    .status{
+        font-size: 3em;
+    }
 }
