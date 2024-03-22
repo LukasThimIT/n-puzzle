@@ -18,6 +18,7 @@ export default function Board(){
     if (boardValues[i] == 0){
       return
     }
+
     boardValues = moveSquares(boardValues, i)
     setSquares(render_board(boardHeight, boardWidth, boardValues));
     setStatus(checkIfWon(boardValues));
@@ -33,33 +34,39 @@ export default function Board(){
     const emptyRow = Math.floor(emptyIndex / boardWidth);
     const squareCol = squareIndex % boardWidth;
     const squareRow = Math.floor(squareIndex / boardWidth);
-    
 
     if(squareRow == emptyRow){
       if(emptyIndex > squareIndex){
         for(let i = emptyIndex; i > squareIndex; i--){
           boardValues[i] = boardValues[i - 1];
         }
+
         boardValues[squareIndex] = 0;
       }
+
       else{
         for(let i = emptyIndex; i < squareIndex; i++){
           boardValues[i] = boardValues[i + 1];
         }
+        
         boardValues[squareIndex] = 0;
       }
     }
+
     else if(squareCol == emptyCol){
       if(emptyIndex > squareIndex){
         for(let i = emptyIndex; i > squareIndex; i -= boardWidth){
           boardValues[i] = boardValues[i - boardWidth];
         }
+
         boardValues[squareIndex] = 0;
       }
+
       else{
         for(let i = emptyIndex; i < squareIndex; i += boardWidth){
           boardValues[i] = boardValues[i + boardWidth];
         }
+
         boardValues[squareIndex] = 0;
       }
     }
@@ -79,6 +86,7 @@ export default function Board(){
     if(JSON.stringify(boardValues) === JSON.stringify(winningBoard)){
       return "YOU WON!";
     }
+
     else{
       return null; 
     }
@@ -92,13 +100,16 @@ export default function Board(){
       
       for(let j = 0; j < boardWidth; j++){
         const index = (i * boardWidth) + j;
+
         if(squareValues[index] == 0){
           columns.push(<Square styleClass="square emptySquare" value={squareValues[index]} key={index} onSquareClick={() => handleClick(index)} />);
         }
+
         else{
           columns.push(<Square styleClass="square" style="" value={squareValues[index]} key={index} onSquareClick={() => handleClick(index)} />);
         }
       }
+
     rows.push(<div className="board-row" key={i}>{columns}</div>);
     }
     return(rows);
